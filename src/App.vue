@@ -39,7 +39,7 @@ const printResume = () => window.print()
     </header>
 
     <main>
-      <section class="resume-section">
+      <section class="resume-section skills-section">
         <h2>核心能力</h2>
         <div class="skills-grid">
           <article v-for="item in resume.capabilities" :key="item.name" class="skill-item">
@@ -49,7 +49,7 @@ const printResume = () => window.print()
         </div>
       </section>
 
-      <section class="resume-section" id="research">
+      <section class="resume-section project-section" id="research">
         <div class="section-title-row">
           <h2>代表项目</h2>
           <span>{{ resume.research.meta }}</span>
@@ -65,11 +65,12 @@ const printResume = () => window.print()
         </article>
       </section>
 
-      <section class="resume-section" id="experience">
+      <section class="resume-section experience-section" id="experience">
         <h2>工作经历</h2>
 
         <div class="experience-list">
-          <article v-for="item in resume.experiences" :key="item.company" class="experience-item">
+          <article v-for="(item, index) in resume.experiences" :key="item.company" class="experience-item">
+            <p v-if="index === 2" class="print-continuation">工作经历（续）</p>
             <div class="experience-title">
               <div>
                 <h3>{{ item.company }}</h3>
@@ -86,7 +87,7 @@ const printResume = () => window.print()
         </div>
       </section>
 
-      <section class="resume-section">
+      <section class="resume-section product-section">
         <h2>代表产品</h2>
         <div class="product-list">
           <article v-for="item in resume.products" :key="item.title" class="product-item">
@@ -99,7 +100,7 @@ const printResume = () => window.print()
         </div>
       </section>
 
-      <section class="resume-section" id="education">
+      <section class="resume-section education-section" id="education">
         <h2>教育背景</h2>
         <div class="education-list">
           <article v-for="item in resume.education" :key="item.school" class="education-item">
